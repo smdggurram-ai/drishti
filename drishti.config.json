@@ -1,0 +1,38 @@
+{
+  "_comment": "neuraltest.config.json — checked into your repo alongside your app code.",
+  "_comment2": "The ci_runner reads this when no CLI flags are passed. CLI flags override these values.",
+
+  "default_suite": "Regression",
+
+  "environments": {
+    "local": {
+      "base_url": "http://localhost:3000"
+    },
+    "staging": {
+      "base_url": "https://staging.yourapp.com"
+    },
+    "production": {
+      "base_url": "https://yourapp.com",
+      "tags": ["smoke", "critical"],
+      "retries": 3
+    }
+  },
+
+  "defaults": {
+    "retries": 2,
+    "parallel": 3,
+    "fail_fast": false,
+    "headless": true,
+    "report_dir": "test-results"
+  },
+
+  "tagging_convention": {
+    "_doc": "Apply these tags to test cases in the NeuralTest UI to control which tests run where.",
+    "smoke":    "Fast sanity checks — run on every PR (< 2 min total)",
+    "critical": "Core user journeys — always run, never skip",
+    "login":    "Authentication flows",
+    "checkout": "Purchase + payment flows",
+    "admin":    "Admin panel tests (staging only)",
+    "slow":     "Tests that take > 30s — excluded from PR runs"
+  }
+}
