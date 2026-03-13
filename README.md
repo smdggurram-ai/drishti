@@ -1,4 +1,4 @@
-# ⚗ NeuralTest
+# ⚗ Dristhi
 
 **AI-powered web testing with natural language authoring, self-healing selectors, and CI/CD pipeline integration.**
 
